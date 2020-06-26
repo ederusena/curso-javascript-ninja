@@ -159,7 +159,8 @@ console.log(pessoa.caminhouQuantosMetros)
 Agora vamos deixar a brincadeira um pouco mais divertida! :D
 Crie um método para o objeto `pessoa` chamado `apresentacao`. Esse método deve
 retornar a string:
-- "Olá, eu sou o [NOME COMPLETO], tenho [IDADE] anos, [ALTURA], meu peso é [PESO] e, só hoje, eu já caminhei [CAMINHOU QUANTOS METROS] metros!"
+- "Olá, eu sou o [NOME COMPLETO], tenho [IDADE] anos, [ALTURA], meu peso é [PESO] 
+e, só hoje, eu já caminhei [CAMINHOU QUANTOS METROS] metros!"
 
 Só que, antes de retornar a string, você vai fazer algumas validações:
 - Se o `sexo` de `pessoa` for "Feminino", a frase acima, no início da
@@ -172,6 +173,20 @@ deve conter no retorno da frase acima é "metro" no lugar de "metros".
 método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
+let { nome, sobrenome, idade, altura, peso, caminhouQuantosMetros, sexo } = pessoa
+pessoa.apresentacao = () => {
+    let sexox = sexo === 'Masculino' ? 'o' : 'a';
+    let idadex = idade >= 1 ? 'anos' : 'ano';
+    let metrox = caminhouQuantosMetros >= 1 ? 'metros' : 'metro';
 
+    let str = `
+    Olá, eu sou ${sexox} ${nome} ${sobrenome}, 
+    tenho ${idade} ${idadex}, ${altura},
+    meu peso é ${peso}kg e, 
+    só hoje, eu já caminhei ${caminhouQuantosMetros} ${metrox}!"`
+    return str
+
+}
 
 // Agora, apresente-se ;)
+console.log(pessoa.apresentacao())
